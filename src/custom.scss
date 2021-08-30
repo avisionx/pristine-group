@@ -1,0 +1,93 @@
+$primary: #049cf4;
+$danger: #cc040c;
+$light: #f8f9fa;
+$dark: #404040;
+$btn-focus-box-shadow: none !important;
+
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;700&display=swap");
+@import "~bootstrap/scss/bootstrap";
+@import "~animate.css/animate.min.css";
+
+* {
+  transition-duration: 300ms;
+}
+
+.pointer {
+  cursor: pointer;
+}
+
+body,
+html {
+  font-family: "Open Sans", sans-serif;
+  overflow-x: hidden;
+}
+
+textarea:focus,
+textarea.form-control:focus,
+input.form-control:focus,
+input[type="text"]:focus,
+input[type="password"]:focus,
+input[type="email"]:focus,
+input[type="number"]:focus,
+[type="text"].form-control:focus,
+[type="password"].form-control:focus,
+[type="email"].form-control:focus,
+[type="tel"].form-control:focus,
+[contenteditable].form-control:focus {
+  box-shadow: none;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  -webkit-box-shadow: 0 0 0 30px white inset !important;
+}
+
+input:-webkit-autofill {
+  -webkit-text-fill-color: #072366 !important;
+}
+
+.text-no-decor {
+  text-decoration: none !important
+}
+
+.minimal-index {
+  color: #f8f9fa;
+  font-weight: 300;
+  letter-spacing: 0.5rem;
+  margin-bottom: 0;
+  opacity: 0.8;
+  font-size: 0.8rem;
+}
+
+.minimal-index::before,
+.minimal-index::after {
+  display: inline-block;
+  content: "";
+  height: 0.4rem;
+  border-top: 1px solid;
+  width: 2rem;
+  margin: 0 0.5rem;
+}
+.minimal-index::after {
+  margin: 0 0 0 0rem;
+}
+
+.widen {
+  letter-spacing: 0.1rem;
+}
+
+.yearLeft50{
+  left: 15vw;
+  @media (max-width: 768px) {
+    left: 50%;
+    transform: translate(-52%) translateY(-55%) !important;
+  }
+}
+
+.text-gradient {
+  background: linear-gradient(to right, #049cf4 0%, #cc040c 100%);
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+}
