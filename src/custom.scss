@@ -91,3 +91,29 @@ input:-webkit-autofill {
 	-webkit-background-clip: text;
 	-webkit-text-fill-color: transparent;
 }
+
+.hoverLink {
+  background-color: rgba($color: #000000, $alpha: 0.4);
+}
+
+.hoverLink:hover {
+  background-color: rgba($color: #000000, $alpha: 0.2);
+}
+
+.hoverBox:hover {
+  transform: scale(1.05);
+}
+
+.hoverLink > fieldset {
+  border-color:#f8f9fa !important
+}
+
+.hoverLink > fieldset > legend {
+  color: #f8f9fa !important;
+}
+
+.hoverLink:hover > fieldset > legend {
+  background: linear-gradient(to top left, #049cf4 0%, #cc040c 100%);
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+}

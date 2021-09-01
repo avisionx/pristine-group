@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import placeholderBannerImg from "../img/image.jpg";
+import placeholderProjectImg from "../img/placeholder.jpg";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Carousel } from "react-responsive-carousel";
 import "../fullscreen-carousel.scss";
@@ -12,6 +13,33 @@ import { Link } from "react-router-dom";
 import LinkArrow from "../img/link-arrow.svg";
 import CountUp from "react-countup";
 import VisibilitySensor from "react-visibility-sensor";
+
+const projectData = [
+  {
+    title: "Residential",
+    to: "/projects/residential",
+  },
+  {
+    title: "Retail",
+    to: "/projects/retail",
+  },
+  {
+    title: "Commercial",
+    to: "/projects/commercial",
+  },
+  {
+    title: "Warehousing",
+    to: "/projects/warehousing",
+  },
+  {
+    title: "Industrial",
+    to: "/projects/industrial",
+  },
+  {
+    title: "Farmhouse & Land",
+    to: "/projects/farmhouse_and_land",
+  },
+];
 
 const Home = ({ isSmall }) => {
   const [showAlert, setShowAlert] = useState(true);
@@ -181,9 +209,12 @@ const Home = ({ isSmall }) => {
         </div>
       </div>
 
-      <Container className="my-5 py-lg-4" fluid style={{position: 'relative'}}>
-
-      {!isSmall && (
+      <Container
+        className="my-5 py-lg-5"
+        fluid
+        style={{ position: "relative" }}
+      >
+        {!isSmall && (
           <p
             style={{
               position: "absolute",
@@ -204,7 +235,7 @@ const Home = ({ isSmall }) => {
                 <hr
                   style={{
                     margin: "0",
-                    width: isSmall ? "50%" :"5rem",
+                    width: isSmall ? "50%" : "5rem",
                     float: "right",
                     background: "#cc040c",
                   }}
@@ -212,7 +243,7 @@ const Home = ({ isSmall }) => {
                 <hr
                   style={{
                     margin: "0",
-                    width: isSmall ? "50%" :"5rem",
+                    width: isSmall ? "50%" : "5rem",
                     float: "right",
                     background: "#049cf4",
                   }}
@@ -224,10 +255,16 @@ const Home = ({ isSmall }) => {
 
         <div className="row justify-content-center mt-5">
           <div className="col-lg-3 pr-lg-5 d-flex flex-row flex-lg-column border-right">
-            
             <div className="my-4 px-2 row">
               <div className="col pr-lg-5 text-center text-lg-right">
-                <CountUp end={75} start={0} startOnMount={false} duration={2} delay={0.1} redraw={true}>
+                <CountUp
+                  end={75}
+                  start={0}
+                  startOnMount={false}
+                  duration={2}
+                  delay={0.1}
+                  redraw={true}
+                >
                   {({ countUpRef, start }) => (
                     <VisibilitySensor onChange={start} delayedCall>
                       <span
@@ -244,7 +281,14 @@ const Home = ({ isSmall }) => {
 
             <div className="my-4 px-2 row">
               <div className="col pr-lg-5 text-center text-lg-right">
-                <CountUp end={25} start={0} startOnMount={false} duration={2} delay={0.1} redraw={true}>
+                <CountUp
+                  end={25}
+                  start={0}
+                  startOnMount={false}
+                  duration={2}
+                  delay={0.1}
+                  redraw={true}
+                >
                   {({ countUpRef, start }) => (
                     <VisibilitySensor onChange={start} delayedCall>
                       <span
@@ -261,7 +305,14 @@ const Home = ({ isSmall }) => {
 
             <div className="my-4 px-2 row">
               <div className="col pr-lg-5 text-center text-lg-right">
-                <CountUp end={100} start={0} startOnMount={false} duration={2} delay={0.1} redraw={true}>
+                <CountUp
+                  end={100}
+                  start={0}
+                  startOnMount={false}
+                  duration={2}
+                  delay={0.1}
+                  redraw={true}
+                >
                   {({ countUpRef, start }) => (
                     <VisibilitySensor onChange={start} delayedCall>
                       <span
@@ -281,7 +332,11 @@ const Home = ({ isSmall }) => {
           <div className="d-flex flex-column col-lg-6">
             <p
               className="text-dark"
-              style={{ lineHeight: "1.8", textAlignLast: isSmall ? "center" : "right", textAlign: isSmall ? "center" : "justify" }}
+              style={{
+                lineHeight: "1.8",
+                textAlignLast: isSmall ? "center" : "right",
+                textAlign: isSmall ? "center" : "justify",
+              }}
             >
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam
               blandit facilisis accumsan. Duis tempor enim id justo pulvinar, at
@@ -294,7 +349,11 @@ const Home = ({ isSmall }) => {
             </p>
             <p
               className="text-dark my-auto"
-              style={{ lineHeight: "1.8",  textAlignLast: isSmall ? "center" : "right", textAlign: isSmall ? "center" : "justify" }}
+              style={{
+                lineHeight: "1.8",
+                textAlignLast: isSmall ? "center" : "right",
+                textAlign: isSmall ? "center" : "justify",
+              }}
             >
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam
               blandit facilisis accumsan. Duis tempor enim id justo pulvinar, at
@@ -305,7 +364,10 @@ const Home = ({ isSmall }) => {
               hendrerit, lorem nisl volutpat lacus, in mollis purus eros
               tristique justo. Donec sed scelerisque odio, nec ultrices leo.
             </p>
-            <Link className="mt-4 mt-lg-auto ml-lg-auto text-no-decor text-gradient" to="/about">
+            <Link
+              className="mt-4 mt-lg-auto ml-lg-auto text-no-decor text-gradient"
+              to="/about"
+            >
               <div className="col col-lg-auto d-flex align-items-center  text-gradient px-lg-0 widen text-uppercase font-weight-light">
                 <h3 className="mb-0">Know More</h3>{" "}
                 <img className="ml-3" width="50px" src={LinkArrow} alt="" />
@@ -313,6 +375,85 @@ const Home = ({ isSmall }) => {
             </Link>
           </div>
           <div className="col-1"></div>
+        </div>
+      </Container>
+
+      <Container
+        className="my-5 py-lg-5 bg-light"
+        fluid
+        style={{ position: "relative" }}
+      >
+        {!isSmall && (
+          <p
+            style={{
+              position: "absolute",
+              top: "50%",
+              transform: "rotate(90deg)",
+              right: 0,
+              marginRight: "-2rem",
+            }}
+            className="minimal-index text-dark"
+          >
+            PROJECTS
+          </p>
+        )}
+
+        <div className="row justify-content-center">
+          <div className="col-lg-9">
+            <H2 className="text-dark text-center text-lg-left text-uppercase font-weight-bold">
+              Projects
+              <div>
+                <hr
+                  style={{
+                    margin: "0",
+                    width: isSmall ? "50%" : "5rem",
+                    float: "left",
+                    background: "#cc040c",
+                  }}
+                />
+                <hr
+                  style={{
+                    margin: "0",
+                    width: isSmall ? "50%" : "5rem",
+                    float: "left",
+                    background: "#049cf4",
+                  }}
+                />
+              </div>
+            </H2>
+          </div>
+        </div>
+
+        <div className="row justify-content-center mt-5">
+          <div className="col-lg-9">
+            <div className="row">
+              {projectData.map((data) => (
+                <div className="col-12 col-lg-4 mb-4 mb-lg-5" key={data.title}>
+                  <div style={{ position: "relative" }} className="hoverBox">
+                    <Link
+                      className="p-4 p-lg-5 text-no-decor hoverLink"
+                      style={{
+                        position: "absolute",
+                        width: "100%",
+                        height: "100%",
+                      }}
+                      to={data.to}
+                    >
+                      <fieldset
+                        className="border p-2 h-100"
+                        style={{ position: "relative" }}
+                      >
+                        <legend className="w-auto px-2 widen text-uppercase font-weight-light">
+                          {data.title}
+                        </legend>
+                      </fieldset>
+                    </Link>
+                    <img src={placeholderProjectImg} width="100%" alt="" />
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
         </div>
       </Container>
     </>
