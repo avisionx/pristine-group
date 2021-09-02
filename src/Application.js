@@ -4,6 +4,7 @@ import { Router as DefaultRouter, Switch, Route } from "react-router-dom";
 import Home from "./Containers/Home";
 import Placeholder from "./Containers/Placeholder";
 import NavBar from "./Components/NavBar";
+import Footer from "./Components/Footer";
 
 var createBrowserHistory = require("history").createBrowserHistory;
 const history = createBrowserHistory();
@@ -58,6 +59,7 @@ const Application = () => {
           render={(props) => <Placeholder {...props} isSmall={isSmall} />}
         />
       </Switch>
+      <Footer isSmall={isSmall} />
     </DefaultRouter>
   );
 };

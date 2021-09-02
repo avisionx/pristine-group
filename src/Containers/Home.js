@@ -5,16 +5,25 @@ import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Carousel } from "react-responsive-carousel";
 import "../fullscreen-carousel.scss";
 import styled from "styled-components";
-import { mdiChevronDown, mdiClose } from "@mdi/js";
+import { mdiChevronDown, mdiClockTimeThreeOutline, mdiClose } from "@mdi/js";
 import Icon from "@mdi/react";
-import { Button } from "reactstrap";
+import {
+  Badge,
+  Button,
+  Card,
+  CardBody,
+  CardImg,
+  CardSubtitle,
+  CardText,
+  CardTitle,
+} from "reactstrap";
 import Container from "reactstrap/lib/Container";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import LinkArrow from "../img/link-arrow.svg";
 import CountUp from "react-countup";
 import VisibilitySensor from "react-visibility-sensor";
 
-const projectData = [
+export const projectData = [
   {
     title: "Residential",
     to: "/projects/residential",
@@ -43,7 +52,11 @@ const projectData = [
 
 const Home = ({ isSmall }) => {
   const [showAlert, setShowAlert] = useState(true);
+  const [newsData, setNewsData] = useState([]);
+  const [newsDate, setNewsDate] = useState(0);
+  let history = useHistory();
   const alert = useRef(null);
+
   useEffect(() => {
     if (alert.current !== null) {
       setTimeout(
@@ -56,6 +69,29 @@ const Home = ({ isSmall }) => {
         1000
       );
     }
+  }, []);
+
+  useEffect(() => {
+    fetch(
+      "https://raw.githubusercontent.com/avisionx/pristine-group-news-api/main/news-top.json"
+    )
+      .then((response) => response.json())
+      .then((data) => {
+        setNewsData(data.news);
+        const date = data.updated_at.date;
+        const time = data.updated_at.time;
+        const newsDate = new Date(
+          date.Y,
+          parseInt(date.m) - 1,
+          date.d,
+          parseInt(time.H) + 5,
+          parseInt(time.M) + 30
+        );
+        const curDate = new Date();
+        setNewsDate(
+          Math.abs(Math.ceil(((newsDate - curDate) % 86400000) / 3600000))
+        );
+      });
   }, []);
 
   const carouselIndicator = (onClickHandler, isSelected, index) => {
@@ -177,6 +213,11 @@ const Home = ({ isSmall }) => {
                     className="rounded-0 border-dark ml-auto mr-3 px-5"
                     size="md"
                     color="dark"
+                    onClick={
+                      () => {
+                        history.push("/contact");
+                      }
+                    }
                   >
                     YES
                   </Button>
@@ -448,11 +489,127 @@ const Home = ({ isSmall }) => {
                         </legend>
                       </fieldset>
                     </Link>
-                    <img src={placeholderProjectImg} width="100%" alt="" />
+                    <figure className="mb-0">
+                      <img src={placeholderProjectImg} width="100%" alt="" />
+                    </figure>
                   </div>
                 </div>
               ))}
             </div>
+          </div>
+        </div>
+      </Container>
+
+      <Container
+        className="my-5 py-lg-5 "
+        fluid
+        style={{ position: "relative" }}
+      >
+        {!isSmall && (
+          <p
+            style={{
+              position: "absolute",
+              top: "50%",
+              transform: "rotate(-90deg)",
+              marginLeft: "-2rem",
+            }}
+            className="minimal-index text-dark"
+          >
+            NEWS
+          </p>
+        )}
+
+        <div className="row justify-content-center">
+          <div className="col-lg-9">
+            <p
+              style={{
+                position: "absolute",
+                bottom: isSmall ? "-3.2rem" : "-1rem",
+                left: isSmall ? "2rem" : "1rem",
+                marginRight: "-7rem",
+              }}
+              className="minimal-text text-gradient"
+            >
+              <Icon path={mdiClockTimeThreeOutline} size={1} color="#049cf4" />{" "}
+              LAST UPDATED {newsDate}HRS AGO
+            </p>
+            <H2 className="text-dark text-center text-lg-right text-uppercase font-weight-bold">
+              News
+              <div>
+                <hr
+                  style={{
+                    margin: "0",
+                    width: isSmall ? "50%" : "5rem",
+                    float: "right",
+                    background: "#cc040c",
+                  }}
+                />
+                <hr
+                  style={{
+                    margin: "0",
+                    width: isSmall ? "50%" : "5rem",
+                    float: "right",
+                    background: "#049cf4",
+                  }}
+                />
+              </div>
+            </H2>
+          </div>
+        </div>
+
+        <div className="row justify-content-center mt-5">
+          <div className="col-lg-9 mt-4 mt-lg-0">
+            <div className="row">
+              {newsData.map((data) => (
+                <div
+                  className="col-12 col-lg-4 mb-4 mb-lg-5 text-no-decor"
+                  key={data.title}
+                >
+                  <Card className="rounded-0 shadow h-100">
+                    <CardImg
+                      top
+                      className="rounded-0"
+                      width="100%"
+                      src={data.img}
+                      alt=""
+                    />
+                    <CardBody className="d-flex flex-column">
+                      <CardTitle className="text-dark widen" tag="h5">
+                        {data.title.replace(/^(.{70}[^\s]*).*/, "$1")}
+                      </CardTitle>
+                      <CardSubtitle tag="h6" className="mb-2 text-muted">
+                        <Badge color="primary" pill>
+                          {data.tag}
+                        </Badge>
+                      </CardSubtitle>
+                      <CardText className="text-dark small">
+                        {data.para.substring(0, 140)}...
+                      </CardText>
+                      <a
+                        className="text-gradient text-right small mt-auto"
+                        href={data.href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        Continue Reading
+                        <img
+                          className="ml-3"
+                          width="20px"
+                          src={LinkArrow}
+                          alt=""
+                        />
+                      </a>
+                    </CardBody>
+                  </Card>
+                </div>
+              ))}
+            </div>
+            <Link className="mt-4 row text-no-decor text-gradient" to="/news">
+              <div className="col col-lg-auto mx-auto d-flex align-items-center text-gradient px-lg-0 widen text-uppercase font-weight-light">
+                <h3 className="mb-0">Read More</h3>{" "}
+                <img className="ml-3" width="50px" src={LinkArrow} alt="" />
+              </div>
+            </Link>
           </div>
         </div>
       </Container>

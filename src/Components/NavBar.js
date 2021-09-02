@@ -12,6 +12,7 @@ import logo_white from "../img/logo-white.png";
 import styled from "styled-components";
 import { useLocation } from "react-router-dom";
 import { Sling as Hamburger } from "hamburger-react";
+import { projectData } from "../Containers/Home";
 
 const NavBar = ({ isSmall }) => {
   const [collapsed, setCollapsed] = useState(true);
@@ -39,7 +40,13 @@ const NavBar = ({ isSmall }) => {
   const navLinks = () => (
     <>
       <CustomNavLink
-        className={`p-3 mx-2 ${scrollPosition ? "text-dark" : isSmall && !collapsed ? "text-dark" : "text-white"}`}
+        className={`p-3 mx-2 ${
+          scrollPosition
+            ? "text-dark"
+            : isSmall && !collapsed
+            ? "text-dark"
+            : "text-white"
+        }`}
         to="/about"
       >
         About Us
@@ -48,7 +55,13 @@ const NavBar = ({ isSmall }) => {
         <DropdownToggle
           nav
           caret
-          className={`p-3 mx-2 ${scrollPosition ? "text-dark" : isSmall && !collapsed ? "text-dark" : "text-white"}`}
+          className={`p-3 mx-2 ${
+            scrollPosition
+              ? "text-dark"
+              : isSmall && !collapsed
+              ? "text-dark"
+              : "text-white"
+          }`}
         >
           Projects
         </DropdownToggle>
@@ -56,56 +69,47 @@ const NavBar = ({ isSmall }) => {
           className="border-0 rounded-0 shadow text-left"
           style={{ minWidth: "0" }}
         >
-          <div className="mb-3">
-            <CustomNavLink className="p-3 mx-2 text-dark w-100" to="/projects/residential">
-              Residential
-            </CustomNavLink>
-          </div>
-          <div className="mb-3">
-            <CustomNavLink className="p-3 mx-2 text-dark w-100" to="/projects/retail">
-              Retail
-            </CustomNavLink>
-          </div>
-          <div className="mb-3">
-            <CustomNavLink className="p-3 mx-2 text-dark w-100" to="/projects/commercial">
-              Commercial
-            </CustomNavLink>
-          </div>
-          <div className="mb-3">
-            <CustomNavLink className="p-3 mx-2 text-dark w-100" to="/projects/warehousing">
-              Warehousing
-            </CustomNavLink>
-          </div>
-          <div className="mb-3">
-            <CustomNavLink className="p-3 mx-2 text-dark w-100" to="/projects/industrial">
-              Industrial
-            </CustomNavLink>
-          </div>
-          <div>
-            <CustomNavLink
-              className="p-3 mx-2 text-dark w-100"
-              style={{ whiteSpace: "nowrap" }}
-              to="/projects/farmhouse_and_land"
-            >
-              Farmhouse & Land
-            </CustomNavLink>
-          </div>
+          {projectData.map((data) => (
+            <div className="my-3" key={data.title}>
+              <CustomNavLink className="p-3 mx-2 text-dark w-100" style={{ whiteSpace: "nowrap" }} to={data.to}>
+                {data.title}
+              </CustomNavLink>
+            </div>
+          ))}
         </DropdownMenu>
       </UncontrolledDropdown>
       <CustomNavLink
-        className={`p-3 mx-2 ${scrollPosition ? "text-dark" : isSmall && !collapsed ? "text-dark" : "text-white"}`}
+        className={`p-3 mx-2 ${
+          scrollPosition
+            ? "text-dark"
+            : isSmall && !collapsed
+            ? "text-dark"
+            : "text-white"
+        }`}
         to="/news"
       >
         News
       </CustomNavLink>
       <CustomNavLink
-        className={`p-3 mx-2 ${scrollPosition ? "text-dark" : isSmall && !collapsed ? "text-dark" : "text-white"}`}
+        className={`p-3 mx-2 ${
+          scrollPosition
+            ? "text-dark"
+            : isSmall && !collapsed
+            ? "text-dark"
+            : "text-white"
+        }`}
         to="/careers"
       >
         Careers
       </CustomNavLink>
       <CustomNavLink
-        className={`p-3 mx-2 ${scrollPosition ? "text-dark" : isSmall && !collapsed ? "text-dark" : "text-white"}`}
+        className={`p-3 mx-2 ${
+          scrollPosition
+            ? "text-dark"
+            : isSmall && !collapsed
+            ? "text-dark"
+            : "text-white"
+        }`}
         to="/contact"
       >
         Contact Us
@@ -175,11 +179,11 @@ const NavBar = ({ isSmall }) => {
         </div>
         {isSmall && (
           <nav
-            
             className={`${
-              collapsed ? "d-none" : "animate__animated animate__fadeInDown d-flex flex-column"
+              collapsed
+                ? "d-none"
+                : "animate__animated animate__fadeInDown d-flex flex-column"
             }`}
-            
           >
             {navLinks()}
           </nav>
