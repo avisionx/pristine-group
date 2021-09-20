@@ -17,6 +17,7 @@ const Contact = ({ isSmall }) => {
     let email = state.email;
     let message = state.message;
     let contact = state.contact;
+    console.log(name, email, message, contact)
     var formUrl = "";
     var xmlHttp = new XMLHttpRequest();
     xmlHttp.open("GET", formUrl);

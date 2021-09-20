@@ -1,6 +1,4 @@
 import React, { useEffect, useRef, useState } from "react";
-import placeholderBannerImg from "../img/image.jpg";
-import placeholderProjectImg from "../img/placeholder.jpg";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Carousel } from "react-responsive-carousel";
 import "../fullscreen-carousel.scss";
@@ -130,13 +128,24 @@ const Home = ({ isSmall }) => {
   return (
     <>
       <div style={{ position: "relative" }}>
+        <div
+          style={{
+            position: "absolute",
+            top: 0,
+            bottom: 0,
+            left: 0,
+            right: 0,
+            backgroundColor: "rgba(0, 0, 0, 0.4)",
+            zIndex: 2,
+          }}
+        ></div>
         <Carousel
           stopOnHover={false}
           showArrows={false}
           showStatus={false}
           showThumbs={false}
           showIndicators={!isSmall}
-          interval={10000}
+          interval={6000}
           renderIndicator={(onClickHandler, isSelected, index) =>
             carouselIndicator(onClickHandler, isSelected, index)
           }
@@ -144,11 +153,17 @@ const Home = ({ isSmall }) => {
           autoPlay
           infiniteLoop
         >
-          <img src={placeholderBannerImg} alt="" />
-          <img src={placeholderBannerImg} alt="" />
-          <img src={placeholderBannerImg} alt="" />
-          <img src={placeholderBannerImg} alt="" />
-          <img src={placeholderBannerImg} alt="" />
+          {[...Array(6)].map((x, i) => (
+            <img
+              src={
+                process.env.PUBLIC_URL +
+                `/cover${isSmall ? "" : ""}/${i + 1}.jpg`
+              }
+              style={isSmall ? {height: "100vh", objectFit: 'cover' } : {}}
+              key={i}
+              alt=""
+            />
+          ))}
         </Carousel>
         {!isSmall && (
           <p
@@ -157,6 +172,7 @@ const Home = ({ isSmall }) => {
               top: "50%",
               transform: "rotate(-90deg)",
               marginLeft: "-3rem",
+              zIndex: 3,
             }}
             className="minimal-index"
           >
@@ -168,6 +184,7 @@ const Home = ({ isSmall }) => {
             position: "absolute",
             top: "50%",
             transform: "translateY(-55%)",
+            zIndex: 3,
           }}
           className="font-weight-bold yearLeft50"
         >
@@ -250,6 +267,7 @@ const Home = ({ isSmall }) => {
             position: "absolute",
             bottom: "20px",
             left: "50%",
+            zIndex: 3,
             transform: "translateX(-50%)",
           }}
           className="text-center"
@@ -474,7 +492,7 @@ const Home = ({ isSmall }) => {
         <div className="row justify-content-center mt-5">
           <div className="col-lg-9">
             <div className="row">
-              {projectData.map((data) => (
+              {projectData.map((data, i) => (
                 <div className="col-12 col-lg-4 mb-4 mb-lg-5" key={data.title}>
                   <div style={{ position: "relative" }} className="hoverBox">
                     <Link
@@ -496,7 +514,16 @@ const Home = ({ isSmall }) => {
                       </fieldset>
                     </Link>
                     <figure className="mb-0">
-                      <img src={placeholderProjectImg} width="100%" alt="" />
+                      <img
+                        src={
+                          process.env.PUBLIC_URL +
+                          `/projects/${i + 1}.jpg`
+                        }
+                        className="img-fluid"
+                        width="100%"
+                        style={{maxHeight: "400px", objectFit: i+1 === 5 ? 'cover' : 'fill' }}
+                        alt=""
+                      />
                     </figure>
                   </div>
                 </div>

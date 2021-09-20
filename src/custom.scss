@@ -110,11 +110,11 @@ input:-webkit-autofill {
 }
 
 .hoverLink {
-  background-color: rgba($color: #000000, $alpha: 0.3);
+  background-color: rgba($color: #000000, $alpha: 0.4);
 }
 
 .hoverLink:hover {
-  background-color: rgba($color: #000000, $alpha: 0.2);
+  background-color: rgba($color: #000000, $alpha: 0.1);
 }
 
 .hoverBox:hover {
@@ -130,9 +130,9 @@ input:-webkit-autofill {
 }
 
 .hoverLink:hover > fieldset > legend {
-  background: linear-gradient(to top left, #049cf4 0%, #cc040c 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  // background: linear-gradient(to top left, #049cf4 0%, #cc040c 100%);
+  // -webkit-background-clip: text;
+  // -webkit-text-fill-color: transparent;
 }
 
 figure::before {

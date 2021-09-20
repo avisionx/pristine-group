@@ -45,7 +45,7 @@ const Careers = ({ isSmall }) => {
           </div>
           <div className="d-flex justify-content-center flex-column order-3 order-lg-2 col-sm-12 col-lg-7">
             <h2 className="text-primary font-weight-bold mb-4 mt-3 mt-lg-0">
-              Boost Your Career With Us
+              Grow Your Career With Us
             </h2>
             <form
               action="https://mailthis.to/USERNAME"
