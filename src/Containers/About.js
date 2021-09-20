@@ -1,5 +1,7 @@
 import React from "react";
 import { H2 } from "./Home";
+import logo from "../img/logo.png";
+import logo_old from "../img/logo-old.jpg";
 
 const About = ({ isSmall }) => {
   return (
@@ -36,6 +38,7 @@ const About = ({ isSmall }) => {
                 right: "3rem",
                 top: "-6rem",
                 transformOrigin: "bottom right",
+                opacity: 0.8
               }}
             >
               About Us
@@ -92,11 +95,16 @@ const About = ({ isSmall }) => {
               our most prized asset – Our Goodwill.
             </p>
           </div>
-          <div className="text-center mt-4 mt-lg-0 order-1 order-lg-3 col-sm-12 col-lg-4">
+          <div className="text-center mt-4 mt-lg-0 order-1 order-lg-3 col-sm-12 col-lg-4 d-lg-flex flex-column align-items-center">
             <img
-              src="https://via.placeholder.com/150"
+              src={logo}
               alt=""
-              className="img-fluid w-75"
+              className="img-fluid w-50"
+            />
+            <img
+              src={logo_old}
+              alt=""
+              className="img-fluid w-25 ml-5 ml-lg-0 mt-lg-5"
             />
           </div>
         </div>

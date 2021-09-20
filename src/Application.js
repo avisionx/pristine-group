@@ -3,6 +3,8 @@ import { Router as DefaultRouter, Switch, Route } from "react-router-dom";
 
 import Home from "./Containers/Home";
 import News from "./Containers/News";
+import Contact from "./Containers/Contact";
+import Careers from "./Containers/Careers";
 import About from "./Containers/About";
 import Placeholder from "./Containers/Placeholder";
 import NavBar from "./Components/NavBar";
@@ -53,12 +55,12 @@ const Application = () => {
         <Route
           exact
           path="/careers"
-          render={(props) => <Placeholder {...props} isSmall={isSmall} />}
+          render={(props) => <Careers {...props} isSmall={isSmall} />}
         />
         <Route
           exact
           path="/contact"
-          render={(props) => <Placeholder {...props} isSmall={isSmall} />}
+          render={(props) => <Contact {...props} isSmall={isSmall} />}
         />
       </Switch>
       <Footer isSmall={isSmall} />

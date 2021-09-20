@@ -52,13 +52,15 @@ const News = ({ isSmall }) => {
                 right: "3rem",
                 top: "-6rem",
                 transformOrigin: "bottom right",
+                opacity: 0.8
               }}
             >
               Latest News
             </h5>
           </div>
           <div className="order-3 order-lg-2 col-sm-12 col-lg-9">
-            <div className="row mt-5 mt-lg-0">
+            <div className="row mt-5 mt-lg-0" style={{minHeight: "60vh"}}>
+              {newsData.length <= 0 && <div className="mt-5 pt-5 text-center w-100">Fetching Latest News...</div>}
           {newsData.map((data) => (
                 <div
                   className="col-12 col-lg-4 mb-4 mb-lg-5 text-no-decor"

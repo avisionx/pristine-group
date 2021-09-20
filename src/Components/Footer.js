@@ -72,13 +72,29 @@ const Footer = ({ isSmall }) => {
             <ListGroup className="no-list mt-2 d-flex">
               <Row className="mb-2">
                 <Col xs="auto">
+                  <Icon path={mdiMapMarkerOutline} size={1} />{" "}
+                </Col>
+                <Col className="pl-0">
+                  <a
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    href="https://goo.gl/maps/dVosGt7vb6haAF518"
+                    className=" text-light"
+                  >
+                    303, Ashok Bhawan - 93, Nehru Place, <br /> New
+                    Delhi - 110019
+                  </a>
+                </Col>
+              </Row>
+              <Row className="mb-2">
+                <Col xs="auto">
                   <Icon path={mdiPhoneOutline} size={1} />{" "}
                 </Col>
                 <Col className="pl-0">
                   <a href="tel:+917701919922" className=" text-light">
                     +91-7701919922
                   </a>
-                  <br />Mon to Fri - 10AM to 6PM
+                  <br /><span className="text-white" style={{opacity: '0.7'}}>Mon to Fri - 10AM to 6PM</span>
                 </Col>
               </Row>
               <Row className="mb-2">
@@ -91,22 +107,6 @@ const Footer = ({ isSmall }) => {
                     className=" text-light"
                   >
                     care@grouppristine.com
-                  </a>
-                </Col>
-              </Row>
-              <Row className="mb-2">
-                <Col xs="auto">
-                  <Icon path={mdiMapMarkerOutline} size={1} />{" "}
-                </Col>
-                <Col className="pl-0">
-                  <a
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    href="https://goo.gl/maps/31Ag5AoePGuy4ccb7"
-                    className=" text-light"
-                  >
-                    303, Ashok Bhawan - 93, Nehru Place, <br /> New
-                    Delhi - 110019
                   </a>
                 </Col>
               </Row>
