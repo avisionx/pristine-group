@@ -1,5 +1,6 @@
 import React from "react";
 import logo from "../img/logo-white.png";
+import logo_old from "../img/logo-old.jpg";
 import { Link } from "react-router-dom";
 import { Container, Row, Col, ListGroup } from "reactstrap";
 import { mdiEmailOutline, mdiMapMarkerOutline, mdiPhoneOutline } from "@mdi/js";
@@ -23,19 +24,18 @@ const Footer = ({ isSmall }) => {
       <Container fluid className="small bg-dark">
         <Row className="text-light pt-0 pt-lg-5 d-flex justify-content-center">
           <Col sm="12" lg="3">
-            <Link to="/" replace>
-              <img width="40%" src={logo} alt="" />
-            </Link>
-            <p className="mb-0 pr-0 pr-lg-3 mt-3 text-light">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam
-              blandit facilisis accumsan. Duis tempor enim id justo pulvinar, at
-              pellentesque turpis sollicitudin. Donec arcu neque, porta a turpis
-              vel, luctus bibendum odio.
+          <Link to="/" className="py-3 d-flex" replace>
+          <img width={isSmall ? "50%" : "40%"} src={logo} alt="" 
+              className="mr-4"/>
+            <div className="d-block border-left border-light"></div>
+              <img width="62px" className="img-fluid border border-light" style={{marginLeft: "2rem"}} src={logo_old} alt="" />
+          </Link>
+            <p className="mb-0 pr-0 pr-lg-3 mt-2 h4 text-uppercase font-weight-light widen text-light">
+            Redefining Real Estate
             </p>
             {!isSmall && (
               <p className="mt-5 mb-4">
-                Copyright © {new Date().getFullYear()} Gupta's PRISTINE Ltd. |
-                All rights reserved | Made by{" "}
+                © Gupta’s Pristine Group {new Date().getFullYear()}. All rights reserved. Developed by{" "}
                 <a
                   className="text-light"
                   href="https://avisionx.net/"
@@ -78,6 +78,7 @@ const Footer = ({ isSmall }) => {
                   <a href="tel:+917701919922" className=" text-light">
                     +91-7701919922
                   </a>
+                  <br />Mon to Fri - 10AM to 6PM
                 </Col>
               </Row>
               <Row className="mb-2">
@@ -104,7 +105,7 @@ const Footer = ({ isSmall }) => {
                     href="https://goo.gl/maps/31Ag5AoePGuy4ccb7"
                     className=" text-light"
                   >
-                    Flat No - 303, Ashok Bhawan - 93, Nehru Place, <br /> New
+                    303, Ashok Bhawan - 93, Nehru Place, <br /> New
                     Delhi - 110019
                   </a>
                 </Col>

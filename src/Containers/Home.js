@@ -29,12 +29,16 @@ export const projectData = [
     to: "/projects/residential",
   },
   {
+    title: "Commercial",
+    to: "/projects/commercial",
+  },
+  {
     title: "Retail",
     to: "/projects/retail",
   },
   {
-    title: "Commercial",
-    to: "/projects/commercial",
+    title: "Luxury Farmhouses",
+    to: "/projects/luxury_farmhouses",
   },
   {
     title: "Warehousing",
@@ -43,10 +47,6 @@ export const projectData = [
   {
     title: "Industrial",
     to: "/projects/industrial",
-  },
-  {
-    title: "Farmhouse & Land",
-    to: "/projects/farmhouse_and_land",
   },
 ];
 
@@ -171,8 +171,18 @@ const Home = ({ isSmall }) => {
           }}
           className="font-weight-bold yearLeft50"
         >
-          <YearText>
-            <i>50</i>
+          <YearText style={{ position: "relative" }}>
+            <i>{new Date().getFullYear() - 1973}</i>
+            <sup
+              style={{
+                position: isSmall ? "relative" : "absolute",
+                top: isSmall ? "none" : "20%",
+                right: isSmall ? "0" : "-25%",
+                fontSize: "40%",
+              }}
+            >
+              +
+            </sup>
           </YearText>
           <YearsOf className="text-white text-uppercase font-weight-bold">
             Years Of
@@ -184,9 +194,10 @@ const Home = ({ isSmall }) => {
         {!isSmall && (
           <div
             style={{
-              position: "absolute",
+              position: "fixed",
               bottom: "20px",
               right: "20px",
+              zIndex: "999",
             }}
             className={`rounded-0 shadow-sm bg-white text-secondary ${
               showAlert ? "d-none" : "animate__animated animate__fadeOutRight"
@@ -213,11 +224,9 @@ const Home = ({ isSmall }) => {
                     className="rounded-0 border-dark ml-auto mr-3 px-5"
                     size="md"
                     color="dark"
-                    onClick={
-                      () => {
-                        history.push("/contact");
-                      }
-                    }
+                    onClick={() => {
+                      history.push("/contact");
+                    }}
                   >
                     YES
                   </Button>
@@ -299,7 +308,7 @@ const Home = ({ isSmall }) => {
             <div className="my-4 px-2 row">
               <div className="col pr-lg-5 text-center text-lg-right">
                 <CountUp
-                  end={75}
+                  end={new Date().getFullYear() - 1973}
                   start={0}
                   startOnMount={false}
                   duration={2}
@@ -316,19 +325,20 @@ const Home = ({ isSmall }) => {
                   )}
                 </CountUp>
                 <sup className="text-danger h3">+</sup>
-                <p>More Stats</p>
+                <p>Year Legacy</p>
               </div>
             </div>
 
             <div className="my-4 px-2 row">
               <div className="col pr-lg-5 text-center text-lg-right">
                 <CountUp
-                  end={25}
+                  end={10}
                   start={0}
                   startOnMount={false}
                   duration={2}
                   delay={0.1}
                   redraw={true}
+                  suffix={"L"}
                 >
                   {({ countUpRef, start }) => (
                     <VisibilitySensor onChange={start} delayedCall>
@@ -340,7 +350,7 @@ const Home = ({ isSmall }) => {
                   )}
                 </CountUp>
                 <sup className="text-primary h3">+</sup>
-                <p>Another Stats</p>
+                <p>Sq. Ft. Developed </p>
               </div>
             </div>
 
@@ -364,30 +374,13 @@ const Home = ({ isSmall }) => {
                   )}
                 </CountUp>
                 <sup className="text-danger h3">+</sup>
-                <p>Years of Experience</p>
+                <p>Projects Delivered</p>
               </div>
             </div>
           </div>
           <div className="col-1"></div>
 
           <div className="d-flex flex-column col-lg-6">
-            <p
-              className="text-dark"
-              style={{
-                lineHeight: "1.8",
-                textAlignLast: isSmall ? "center" : "right",
-                textAlign: isSmall ? "center" : "justify",
-              }}
-            >
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam
-              blandit facilisis accumsan. Duis tempor enim id justo pulvinar, at
-              pellentesque turpis sollicitudin. Donec arcu neque, porta a turpis
-              vel, luctus bibendum odio. Fusce facilisis quis odio sed molestie.
-              Mauris non hendrerit nulla. Aliquam ligula justo, mattis ut lectus
-              ac, ultrices vehicula nulla. Cras tristique, dolor eget posuere
-              hendrerit, lorem nisl volutpat lacus, in mollis purus eros
-              tristique justo. Donec sed scelerisque odio, nec ultrices leo.
-            </p>
             <p
               className="text-dark my-auto"
               style={{
@@ -396,14 +389,27 @@ const Home = ({ isSmall }) => {
                 textAlign: isSmall ? "center" : "justify",
               }}
             >
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam
-              blandit facilisis accumsan. Duis tempor enim id justo pulvinar, at
-              pellentesque turpis sollicitudin. Donec arcu neque, porta a turpis
-              vel, luctus bibendum odio. Fusce facilisis quis odio sed molestie.
-              Mauris non hendrerit nulla. Aliquam ligula justo, mattis ut lectus
-              ac, ultrices vehicula nulla. Cras tristique, dolor eget posuere
-              hendrerit, lorem nisl volutpat lacus, in mollis purus eros
-              tristique justo. Donec sed scelerisque odio, nec ultrices leo.
+              Real Estate Pioneers Late Shri Surender Kumar Gupta and Shri
+              Rajendra Kumar Gupta under the guidance of their father and the
+              company’s north star, Late Shri Lala Ram Bhaj Gupta, laid the
+              foundation of Pristine Group in 1973. Building on their legacy and
+              following in their footprints, today, the future generations of
+              the Gupta Family are at the helm of the company, scaling
+              unprecedented heights and redefining real estate as we know it.
+            </p>
+            <p
+              className="text-dark mt-4 mb-auto"
+              style={{
+                lineHeight: "1.8",
+                textAlignLast: isSmall ? "center" : "right",
+                textAlign: isSmall ? "center" : "justify",
+              }}
+            >
+              As one of the foundational builders of the Delhi-NCR region, the
+              group offers and has successfully developed a bouquet of real
+              estate products across various segments: Residential, Commercial,
+              Retail, Warehousing, Industrial and Luxury Farmhouses. The group
+              also has roots and operations expanding into Punjab and Haryana.
             </p>
             <Link
               className="mt-4 mt-lg-auto ml-lg-auto text-no-decor text-gradient"
@@ -623,7 +629,9 @@ const YearText = styled.h1`
   color: transparent;
   margin: 0;
   @media (max-width: 1440px) {
-    font-size: 20rem;
+    font-size: 12rem;
+    text-align: center;
+    margin-bottom: 3rem;
   }
 `;
 
@@ -632,11 +640,12 @@ const YearsOf = styled.div`
   text-align: center;
   margin-top: -5rem;
   @media (max-width: 1440px) {
-    font-size: 4rem;
+    font-size: 3.5rem;
+    margin-bottom: 0.4rem;
   }
 `;
 
-const H2 = styled.div`
+export const H2 = styled.div`
   font-size: 5rem;
   text-align: center;
   @media (max-width: 1440px) {
@@ -649,7 +658,7 @@ const Exp = styled.div`
   text-align: center;
   margin-top: -2rem;
   @media (max-width: 1440px) {
-    font-size: 4rem;
+    font-size: 3.5rem;
   }
 `;
 

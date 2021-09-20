@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 import { Router as DefaultRouter, Switch, Route } from "react-router-dom";
 
 import Home from "./Containers/Home";
+import News from "./Containers/News";
+import About from "./Containers/About";
 import Placeholder from "./Containers/Placeholder";
 import NavBar from "./Components/NavBar";
 import Footer from "./Components/Footer";
@@ -36,7 +38,7 @@ const Application = () => {
         <Route
           exact
           path="/about"
-          render={(props) => <Placeholder {...props} isSmall={isSmall} />}
+          render={(props) => <About {...props} isSmall={isSmall} />}
         />
         <Route
           exact
@@ -46,7 +48,7 @@ const Application = () => {
         <Route
           exact
           path="/news"
-          render={(props) => <Placeholder {...props} isSmall={isSmall} />}
+          render={(props) => <News {...props} isSmall={isSmall} />}
         />
         <Route
           exact
