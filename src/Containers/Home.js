@@ -434,7 +434,7 @@ const Home = ({ isSmall }) => {
               to="/about"
             >
               <div className="col col-lg-auto d-flex align-items-center  text-gradient px-lg-0 widen text-uppercase font-weight-light">
-                <h3 className="mb-0">Know More</h3>{" "}
+                <h3 className="mb-0 text-gradient">Know More</h3>{" "}
                 <img className="ml-3" width="50px" src={LinkArrow} alt="" />
               </div>
             </Link>
@@ -639,7 +639,7 @@ const Home = ({ isSmall }) => {
             </div>
             <Link className="mt-4 row text-no-decor text-gradient" to="/news">
               <div className="col col-lg-auto mx-auto d-flex align-items-center text-gradient px-lg-0 widen text-uppercase font-weight-light">
-                <h3 className="mb-0">Read More</h3>{" "}
+                <h3 className="mb-0 text-gradient">Read More</h3>{" "}
                 <img className="ml-3" width="50px" src={LinkArrow} alt="" />
               </div>
             </Link>
