@@ -16,7 +16,7 @@ const history = createBrowserHistory();
 const Application = () => {
   const getIsSmall = () => {
     const { innerWidth: width } = window;
-    return width <= 768;
+    return width <= 800;
   };
 
   const [isSmall, setIsSmall] = useState(getIsSmall());
