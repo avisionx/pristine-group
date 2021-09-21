@@ -191,8 +191,7 @@ const Footer = ({ isSmall }) => {
           {isSmall && (
             <Col>
               <p className="mt-5 mb-4">
-                Copyright © {new Date().getFullYear()} Gupta's PRISTINE Ltd. |
-                All rights reserved | Made by{" "}
+                © Gupta’s Pristine Group {new Date().getFullYear()}. All rights reserved. Developed by{" "}
                 <a
                   className="text-light"
                   href="https://avisionx.net/"
