@@ -6,13 +6,14 @@ import News from "./Containers/News";
 import Contact from "./Containers/Contact";
 import Careers from "./Containers/Careers";
 import About from "./Containers/About";
-import Placeholder from "./Containers/Placeholder";
 import NavBar from "./Components/NavBar";
 import Footer from "./Components/Footer";
 import Residential from "./Containers/Residential";
 import Commercial from "./Containers/Commercial";
 import Retail from "./Containers/Retail";
 import Farmhouse from "./Containers/Farmhouse";
+import Warehousing from "./Containers/Warehousing";
+import Industrial from "./Containers/Industrial";
 
 var createBrowserHistory = require("history").createBrowserHistory;
 const history = createBrowserHistory();
@@ -68,8 +69,13 @@ const Application = () => {
         />
         <Route
           exact
-          path="/projects/:type"
-          render={(props) => <Placeholder {...props} isSmall={isSmall} />}
+          path="/projects/warehousing"
+          render={(props) => <Warehousing {...props} isSmall={isSmall} />}
+        />
+        <Route
+          exact
+          path="/projects/industrial"
+          render={(props) => <Industrial {...props} isSmall={isSmall} />}
         />
         <Route
           exact
