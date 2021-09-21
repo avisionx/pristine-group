@@ -4,6 +4,7 @@ $light: #f8f9fa;
 $dark: #404040;
 $btn-focus-box-shadow: none !important;
 
+@import "react-slideshow-image/dist/styles.css";
 @import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;700&display=swap");
 @import "~bootstrap/scss/bootstrap";
 @import "~animate.css/animate.min.css";
@@ -176,4 +177,33 @@ figure::before {
 
 .no-list > a {
   margin-bottom: 0.25rem;
+}
+
+.each-slide > div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: clamp(350px, 30vw, 450px);
+}
+
+.each-slide span {
+  padding: 0.5rem;
+  width: 100%;
+  bottom: 0;
+  margin-top: auto;
+  font-size: 1.4rem;
+  background: rgba(0, 0, 0, 0.4);
+  text-align: center;
+  color: #f8f9fa;
+}
+
+.react-slideshow-container > button {
+  fill: black;
+  background-color: transparent !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }

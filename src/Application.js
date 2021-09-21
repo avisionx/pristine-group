@@ -9,6 +9,10 @@ import About from "./Containers/About";
 import Placeholder from "./Containers/Placeholder";
 import NavBar from "./Components/NavBar";
 import Footer from "./Components/Footer";
+import Residential from "./Containers/Residential";
+import Commercial from "./Containers/Commercial";
+import Retail from "./Containers/Retail";
+import Farmhouse from "./Containers/Farmhouse";
 
 var createBrowserHistory = require("history").createBrowserHistory;
 const history = createBrowserHistory();
@@ -41,6 +45,26 @@ const Application = () => {
           exact
           path="/about"
           render={(props) => <About {...props} isSmall={isSmall} />}
+        />
+        <Route
+          exact
+          path="/projects/residential"
+          render={(props) => <Residential {...props} isSmall={isSmall} />}
+        />
+        <Route
+          exact
+          path="/projects/commercial"
+          render={(props) => <Commercial {...props} isSmall={isSmall} />}
+        />
+        <Route
+          exact
+          path="/projects/retail"
+          render={(props) => <Retail {...props} isSmall={isSmall} />}
+        />
+        <Route
+          exact
+          path="/projects/luxury_farmhouses"
+          render={(props) => <Farmhouse {...props} isSmall={isSmall} />}
         />
         <Route
           exact
