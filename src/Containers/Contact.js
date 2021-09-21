@@ -104,13 +104,13 @@ const Contact = ({ isSmall }) => {
             <iframe
               width="100%"
               style={{ border: 0 }}
-              allowfullscreen
+              allowFullScreen
               loading="lazy"
               height="500px"
-              frameborder="0"
+              frameBorder="0"
               scrolling="no"
-              marginheight="0"
-              marginwidth="0"
+              marginHeight="0"
+              marginWidth="0"
               title="Pristine Group"
               src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3504.713467154677!2d77.25031531508074!3d28.548330982451084!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390ce3c564455555%3A0x432a1f11c4c8f62c!2sPristine%20Group!5e0!3m2!1sen!2sin!4v1632153308490!5m2!1sen!2sin"
             ></iframe>
@@ -118,15 +118,15 @@ const Contact = ({ isSmall }) => {
               Get in Touch With Us
             </h2>
             <div className="row">
-              <div className="col-8">
+              <div className="col-12 col-lg-8">
                 <form onSubmit={submitMessage}>
-                  <div class="form-group">
-                    <label for="name">
-                      Full Name<span class="text-danger">*</span>
+                  <div className="form-group">
+                    <label htmlFor="name">
+                      Full Name<span className="text-danger">*</span>
                     </label>
                     <input
                       type="text"
-                      class="form-control"
+                      className="form-control"
                       id="name"
                       aria-describedby="emailHelp"
                       placeholder="Full Name"
@@ -134,17 +134,17 @@ const Contact = ({ isSmall }) => {
                       required
                       onChange={handleChange}
                     />
-                    <small id="emailHelp" class="form-text text-muted">
+                    <small id="emailHelp" className="form-text text-muted">
                       Please enter your full name.
                     </small>
                   </div>
-                  <div class="form-group">
-                    <label for="email">
-                      Email Address<span class="text-danger">*</span>
+                  <div className="form-group">
+                    <label htmlFor="email">
+                      Email Address<span className="text-danger">*</span>
                     </label>
                     <input
                       type="email"
-                      class="form-control"
+                      className="form-control"
                       id="email"
                       aria-describedby="emailHelp"
                       placeholder="Email Address"
@@ -152,34 +152,34 @@ const Contact = ({ isSmall }) => {
                       onChange={handleChange}
                       name="email"
                     />
-                    <small id="emailHelp" class="form-text text-muted">
+                    <small id="emailHelp" className="form-text text-muted">
                       We'll get back to you on this email.
                     </small>
                   </div>
-                  <div class="form-group">
-                    <label for="contact">Contact Number</label>
+                  <div className="form-group">
+                    <label htmlFor="contact">Contact Number</label>
                     <input
                       type="tel"
-                      class="form-control"
+                      className="form-control"
                       id="contact"
                       aria-describedby="contactHelp"
                       placeholder="Contact Number"
                       onChange={handleChange}
                       name="contact"
                     />
-                    <small id="contactHelp" class="form-text text-muted">
+                    <small id="contactHelp" className="form-text text-muted">
                       We'll get back to you on this number for follow up.
                     </small>
                   </div>
 
-                  <div class="form-group">
-                    <label for="message">
-                      Message<span class="text-danger">*</span>
+                  <div className="form-group">
+                    <label htmlFor="message">
+                      Message<span className="text-danger">*</span>
                     </label>
 
                     <textarea
                       rows="6"
-                      class="form-control"
+                      className="form-control"
                       id="message"
                       aria-describedby="messageHelp"
                       placeholder="Message"
@@ -187,20 +187,20 @@ const Contact = ({ isSmall }) => {
                       onChange={handleChange}
                       required
                     />
-                    <small id="messageHelp" class="form-text text-muted">
+                    <small id="messageHelp" className="form-text text-muted">
                       Please enter your message or query.
                     </small>
                   </div>
 
                   <button
                     type="submit"
-                    class="rounded-0 border-0 mt-4 ml-auto mr-3 p-1 btn btn-primary bg-gradient btn-md"
+                    className="rounded-0 border-0 mt-4 ml-auto mr-3 p-1 btn btn-primary bg-gradient btn-md"
                   >
                     <div className="bg-white px-5 text-dark py-2">Send</div>
                   </button>
                 </form>
               </div>
-              <div className="col-4">
+              <div className="col-12 col-lg-4 mt-5 mt-lg-0">
                 {contactArray.map((data, i) => {
                   return (
                     <div className="media" key={i}>

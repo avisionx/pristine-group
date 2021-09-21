@@ -50,65 +50,65 @@ const Careers = ({ isSmall }) => {
             <form
               action="https://mailthis.to/USERNAME"
               method="POST"
-              enctype="multipart/form-data"
+              encType="multipart/form-data"
             >
-              <div class="form-group">
-                <label for="name">
-                  Full Name<span class="text-danger">*</span>
+              <div className="form-group">
+                <label htmlFor="name">
+                  Full Name<span className="text-danger">*</span>
                 </label>
                 <input
                   type="text"
-                  class="form-control"
+                  className="form-control"
                   id="name"
                   aria-describedby="emailHelp"
                   placeholder="Full Name"
                   name="name"
                   required
                 />
-                <small id="emailHelp" class="form-text text-muted">
+                <small id="emailHelp" className="form-text text-muted">
                   Please enter your full legal name here.
                 </small>
               </div>
-              <div class="form-group">
-                <label for="email">
-                  Email Address<span class="text-danger">*</span>
+              <div className="form-group">
+                <label htmlFor="email">
+                  Email Address<span className="text-danger">*</span>
                 </label>
                 <input
                   type="email"
-                  class="form-control"
+                  className="form-control"
                   id="email"
                   aria-describedby="emailHelp"
                   placeholder="Email Address"
                   required
                   name="_replyto"
                 />
-                <small id="emailHelp" class="form-text text-muted">
+                <small id="emailHelp" className="form-text text-muted">
                   We'll contact you on this email for further notice.
                 </small>
               </div>
-              <div class="form-group">
-                <label for="contact">
-                  Contact Number<span class="text-danger">*</span>
+              <div className="form-group">
+                <label htmlFor="contact">
+                  Contact Number<span className="text-danger">*</span>
                 </label>
                 <input
                   type="tel"
-                  class="form-control"
+                  className="form-control"
                   id="contact"
                   aria-describedby="contactHelp"
                   placeholder="Contact Number"
                   required
                   name="contact"
                 />
-                <small id="contactHelp" class="form-text text-muted">
+                <small id="contactHelp" className="form-text text-muted">
                   We'll contact you on this number for further notice.
                 </small>
               </div>
-              <div class="form-group">
-                <label for="designation">Designation<span class="text-danger">*</span></label>
+              <div className="form-group">
+                <label htmlFor="designation">Designation<span className="text-danger">*</span></label>
                 <input
                   type="text"
                   list="designation_list"
-                  class="form-control"
+                  className="form-control"
                   id="designation"
                   aria-describedby="designationHelp"
                   placeholder="Designation"
@@ -125,50 +125,50 @@ const Careers = ({ isSmall }) => {
                   <option value="Accounts &amp; Finance" />
                   <option value="Customer Service" />
                 </datalist>
-                <small id="designationHelp" class="form-text text-muted">
+                <small id="designationHelp" className="form-text text-muted">
                   Please choose/enter the designation you think you are best suited
                   for.
                 </small>
               </div>
-              <div class="form-group">
-                <label for="current_employer">Current Employer</label>
+              <div className="form-group">
+                <label htmlFor="current_employer">Current Employer</label>
                 <input
                   type="text"
-                  class="form-control"
+                  className="form-control"
                   id="current_employer"
                   aria-describedby="currentEmployerHelp"
                   placeholder="Current Employer"
                   name="current_employer"
                 />
-                <small id="currentEmployerHelp" class="form-text text-muted">
+                <small id="currentEmployerHelp" className="form-text text-muted">
                   Please enter your current employer name if any.
                 </small>
               </div>
-              <div class="form-group">
-                <label for="linkedin">LinkedIn Profile</label>
+              <div className="form-group">
+                <label htmlFor="linkedin">LinkedIn Profile</label>
                 <input
                   type="text"
-                  class="form-control"
+                  className="form-control"
                   id="linkedin"
                   aria-describedby="linkedinHelp"
                   placeholder="LinkedIn Profile"
                   name="linkedin"
                 />
-                <small id="linkedinHelp" class="form-text text-muted">
+                <small id="linkedinHelp" className="form-text text-muted">
                   Please enter link to your LinkedIn profile.
                 </small>
               </div>
               <label>
-                Upload CV/Resume<span class="text-danger">*</span>
+                Upload CV/Resume<span className="text-danger">*</span>
               </label>
               <input
                 type="file"
-                class="form-control-file"
+                className="form-control-file"
                 id="resume"
                 name="file"
                 required
               />
-              <small id="designationHelp" class="form-text text-muted">
+              <small id="designationHelp" className="form-text text-muted">
                 Please upload your latest resume/cv in pdf format.
               </small>
               <input
@@ -182,7 +182,7 @@ const Careers = ({ isSmall }) => {
                 name="_confirmation"
                 value="We'll find best opportunity for you at Pristine Group & get in touch with you shortly!"
               />
-              <button type="submit" class="rounded-0 border-0 mt-5 ml-auto mr-3 p-1 btn btn-primary bg-gradient btn-md">
+              <button type="submit" className="rounded-0 border-0 mt-5 ml-auto mr-3 p-1 btn btn-primary bg-gradient btn-md">
                 <div className="bg-white px-5 text-dark py-2">
                 Submit
                 </div>
