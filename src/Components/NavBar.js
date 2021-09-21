@@ -131,7 +131,6 @@ const NavBar = ({ isSmall }) => {
       >
         Contact Us
       </CustomNavLink>
-     
     </>
   );
 
@@ -153,7 +152,7 @@ const NavBar = ({ isSmall }) => {
         expand="lg"
         fixed="top"
         light
-        style={{ zIndex: 9999 }}
+        style={{ zIndex: 9999, maxHeight: isSmall ? "auto" : "130px" }}
       >
         <div className="d-flex w-100">
           <Link to="/" className="py-3 d-flex" replace>
@@ -228,7 +227,7 @@ const NavBar = ({ isSmall }) => {
           </nav>
         )}
       </Navbar>
-      {!isHome && <div style={{marginTop: isSmall ? "7rem" : "10rem"}}></div>}
+      {!isHome && <div style={{ marginTop: isSmall ? "7rem" : "10rem" }}></div>}
     </>
   );
 };
