@@ -22,7 +22,7 @@ const News = ({ isSmall }) => {
     <>
       <div className="container-fluid my-5">
         <H2 className="text-gradient text-center d-block d-lg-none text-lg-right text-uppercase font-weight-bold">
-          Top News
+        <span>Top News</span>
           <div >
             <hr
               style={{
