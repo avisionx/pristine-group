@@ -153,7 +153,7 @@ const Home = ({ isSmall }) => {
           autoPlay
           infiniteLoop
         >
-          {[...Array(6)].map((x, i) => (
+          {[...Array(5)].map((x, i) => (
             <img
               src={
                 process.env.PUBLIC_URL +

@@ -38,15 +38,18 @@ const About = ({ isSmall }) => {
                 right: "3rem",
                 top: "-6rem",
                 transformOrigin: "bottom right",
-                opacity: 0.8
+                opacity: 0.8,
               }}
             >
               About Us
             </h5>
           </div>
           <div className="d-flex justify-content-center flex-column order-3 order-lg-2 col-sm-12 col-lg-5">
-            <h2 className="text-primary font-weight-bold mb-4 mt-3 mt-lg-0">
-              We Are On A Mission To Redifine Real Estate
+            <h2
+              className="text-uppercase font-weight-light widen text-primary font-weight-bold mb-2 mt-3 mt-lg-0 h2"
+              style={{ fontFamily: "'Caveat', cursive" }}
+            >
+              Redefining Real Estate
             </h2>
             <p className="text-dark">
               Real Estate Pioneers Late Shri Surender Kumar Gupta and Shri
@@ -96,11 +99,7 @@ const About = ({ isSmall }) => {
             </p>
           </div>
           <div className="text-center mt-4 mt-lg-0 order-1 order-lg-3 col-sm-12 col-lg-4 d-lg-flex flex-column align-items-center">
-            <img
-              src={logo}
-              alt=""
-              className="img-fluid w-50"
-            />
+            <img src={logo} alt="" className="img-fluid w-50" />
             <img
               src={logo_old}
               alt=""

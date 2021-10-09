@@ -43,7 +43,7 @@ const Careers = ({ isSmall }) => {
               Careers
             </h5>
           </div>
-          <div className="d-flex justify-content-center flex-column order-3 order-lg-2 col-sm-12 col-lg-7">
+          <div className="d-flex justify-content-center flex-column order-3 order-lg-2 col-sm-12 col-lg-6">
             <h2 className="text-primary font-weight-bold mb-4 mt-3 mt-lg-0">
               Grow Your Career With Us
             </h2>
@@ -189,7 +189,7 @@ const Careers = ({ isSmall }) => {
               </button>
             </form>
           </div>
-          <div className="text-center mt-4 mt-lg-0 order-1 order-lg-3 col-sm-12 col-lg-2">
+          <div className="text-center mt-4 mt-lg-0 order-1 order-lg-3 col-sm-12 col-lg-3">
             <img src={career_img} alt="" className="img-fluid w-100" />
           </div>
         </div>

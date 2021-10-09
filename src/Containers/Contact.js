@@ -50,7 +50,7 @@ const Contact = ({ isSmall }) => {
     {
       icon: mdiPhone,
       title: "+91-7701919922",
-      text: "Mon to Fri - 10AM to 6PM",
+      text: "Mon to Fri - 11AM to 5PM",
       href: "tel:+917701919922",
     },
     {

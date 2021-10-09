@@ -5,6 +5,7 @@ import {
   UncontrolledDropdown,
   DropdownToggle,
   DropdownMenu,
+  Col,
 } from "reactstrap";
 import { Link } from "react-router-dom";
 import logo from "../img/logo.png";
@@ -155,32 +156,33 @@ const NavBar = ({ isSmall }) => {
         style={{ zIndex: 9999, maxHeight: isSmall ? "auto" : "130px" }}
       >
         <div className="d-flex w-100">
-          <Link to="/" className="py-3 d-flex" replace>
-            <img
-              src={
-                isHome
-                  ? scrollPosition
-                    ? logo
-                    : isSmall && !collapsed
-                    ? logo
-                    : logo_white
-                  : logo
-              }
-              alt=""
-              className="mr-4"
-              height={`${isSmall ? "50px" : "80px"}`}
-            />
-            <div
-              className="d-none d-md-block border-left"
-              style={{ height: "100%" }}
-            ></div>
-            <img
-              width="62px"
-              className="d-none d-md-block  img-fluid border border-light"
-              style={{ marginLeft: "2rem" }}
-              src={logo_old}
-              alt=""
-            />
+          <Link to="/" className="py-3" replace>
+            <div className="row no-gutter d-flex align-items-center">
+              <Col size="auto">
+                <img
+                  width={isSmall ? "120px" : "250px"}
+                  src={
+                    isHome
+                      ? scrollPosition
+                        ? logo
+                        : isSmall && !collapsed
+                        ? logo
+                        : logo_white
+                      : logo
+                  }
+                  alt=""
+                  className="img-fluid"
+                />
+              </Col>
+              <Col size="auto" className="d-none d-md-block border-light border-left ">
+                <img
+                  width="60px"
+                  className="border border-light"
+                  src={logo_old}
+                  alt=""
+                />
+              </Col>
+            </div>
           </Link>
           <div className="ml-auto d-flex align-items-center">
             {!isSmall && (
