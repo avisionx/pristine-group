@@ -47,7 +47,8 @@ const About = ({ isSmall }) => {
           <div className="d-flex justify-content-center flex-column order-3 order-lg-2 col-sm-12 col-lg-5">
             <h2
               className="text-uppercase font-weight-light widen text-primary font-weight-bold mb-2 mt-3 mt-lg-0 h2"
-              style={{ fontFamily: "'Caveat', cursive" }}
+              style={{ fontFamily: "'Nunito', sans-serif" }}
+              
             >
               Redefining Real Estate
             </h2>

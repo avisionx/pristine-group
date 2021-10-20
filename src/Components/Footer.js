@@ -36,7 +36,7 @@ const Footer = ({ isSmall }) => {
             </Link>
             <p
               className="mb-0 mt-2 h3 text-uppercase font-weight-light widen text-light"
-              style={{ fontFamily: "'Caveat', cursive" }}
+              style={{ fontFamily: "'Nunito', sans-serif" }}
             >
               Redefining Real Estate
             </p>

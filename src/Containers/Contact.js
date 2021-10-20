@@ -2,6 +2,7 @@ import { mdiEmail, mdiMapMarker, mdiPhone } from "@mdi/js";
 import Icon from "@mdi/react";
 import React, { useState } from "react";
 import { H2 } from "./Home";
+import ReCAPTCHA from "react-google-recaptcha";
 
 const Contact = ({ isSmall }) => {
   const [state, setState] = useState({
@@ -11,26 +12,38 @@ const Contact = ({ isSmall }) => {
     contact: "",
   });
 
+  const [isSent, setIsSent] = useState('');
+  const [isVerified, setIsVerified] = useState(null);
+  const [isError, setIsError] = useState(false);
+
   const submitMessage = (event) => {
     event.preventDefault();
-    let name = state.name;
-    let email = state.email;
-    let message = state.message;
-    let contact = state.contact;
-    console.log(name, email, message, contact)
-    var formUrl = "";
-    var xmlHttp = new XMLHttpRequest();
-    xmlHttp.open("GET", formUrl);
-    xmlHttp.send(null);
-    setState({
-      name: "",
-      email: "",
-      message: "",
-      contact: "",
-    });
+    if (isVerified) {
+      let name = state.name;
+      let email = state.email;
+      let message = state.message;
+      let contact = state.contact;
+      var formUrl = `https://docs.google.com/forms/d/e/1FAIpQLSclvNomLE2jNLcCUj_A4daUDhrPws8U6kR9RENJoHRS_OZtMg/viewform?usp=pp_url&entry.1832782791=${name}&entry.862181333=${email}&entry.662822698=${contact}&entry.429037016=${message}`;
+      var xmlHttp = new XMLHttpRequest();
+      xmlHttp.open("GET", formUrl);
+      xmlHttp.send(null);
+      setIsSent("Message Sent!");
+      setIsError(false);
+      setState({
+        name: "",
+        email: "",
+        message: "",
+        contact: "",
+      });
+    } else {
+      setIsError(true);
+      setIsSent("Verify Captcha!");
+    }
   };
 
   const handleChange = (event) => {
+    setIsSent('');
+
     const target = event.target;
     const value = target.value;
     const name = target.name;
@@ -64,7 +77,7 @@ const Contact = ({ isSmall }) => {
     <>
       <div className="container-fluid my-5">
         <H2 className="text-gradient text-center d-block d-lg-none text-lg-right text-uppercase font-weight-bold">
-        <span>Contact</span>
+          <span>Contact</span>
           <div>
             <hr
               style={{
@@ -132,6 +145,7 @@ const Contact = ({ isSmall }) => {
                       placeholder="Full Name"
                       name="name"
                       required
+                      value={state.name}
                       onChange={handleChange}
                     />
                     <small id="emailHelp" className="form-text text-muted">
@@ -148,6 +162,7 @@ const Contact = ({ isSmall }) => {
                       id="email"
                       aria-describedby="emailHelp"
                       placeholder="Email Address"
+                      value={state.email}
                       required
                       onChange={handleChange}
                       name="email"
@@ -165,6 +180,7 @@ const Contact = ({ isSmall }) => {
                       aria-describedby="contactHelp"
                       placeholder="Contact Number"
                       onChange={handleChange}
+                      value={state.contact}
                       name="contact"
                     />
                     <small id="contactHelp" className="form-text text-muted">
@@ -183,6 +199,7 @@ const Contact = ({ isSmall }) => {
                       id="message"
                       aria-describedby="messageHelp"
                       placeholder="Message"
+                      value={state.message}
                       name="message"
                       onChange={handleChange}
                       required
@@ -192,12 +209,28 @@ const Contact = ({ isSmall }) => {
                     </small>
                   </div>
 
-                  <button
-                    type="submit"
-                    className="rounded-0 border-0 mt-4 ml-auto mr-3 p-1 btn btn-primary bg-gradient btn-md"
-                  >
-                    <div className="bg-white px-5 text-dark py-2">Send</div>
-                  </button>
+                  <ReCAPTCHA
+                    sitekey="6LcQp-EcAAAAAFWMUKnN3l2LyOhp7SGYlHOeoymG"
+                    className="mt-4"
+                    onChange={(value) => setIsVerified(value)}
+                  />
+                  <div className="mt-4">
+                    <div className="d-flex">
+                      <button
+                        type="submit"
+                        className="rounded-0 border-0 p-1 btn btn-primary bg-gradient btn-md"
+                      >
+                        <div className="bg-white px-5 text-dark py-2">Send</div>
+                      </button>
+                      <div
+                        className={`mb-0 ml-auto d-flex align-items-center small border-0 py-0 text-uppercase alert ${
+                          isError ? "alert-danger" : "alert-success"
+                        } hidden ${isSent ? "" : "hide"}`}
+                      >
+                        {isSent}
+                      </div>
+                    </div>
+                  </div>
                 </form>
               </div>
               <div className="col-12 col-lg-4 mt-5 mt-lg-0">
