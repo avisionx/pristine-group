@@ -157,7 +157,7 @@ const Home = ({ isSmall }) => {
             <img
               src={
                 process.env.PUBLIC_URL +
-                `/cover${isSmall ? "" : ""}/${i + 1}.jpg`
+                `/cover${isSmall ? "-mobile" : ""}/${i + 1}.jpg`
               }
               style={isSmall ? { height: "100vh", objectFit: "cover" } : {}}
               key={i}
