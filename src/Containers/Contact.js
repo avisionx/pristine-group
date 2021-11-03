@@ -278,14 +278,17 @@ const Contact = ({ isSmall }) => {
                             <p className="mb-0 mt-2 h5 text-primary font-weight-light">
                               {data.title2}
                             </p>
-                            {data.number2.map((number, i) => <a
-                              href={data.href2[i]}
-                              className="mb-3 text-secondary"
-                              target="_blank"
-                              rel="noreferrer noopener"
-                            >
-                              {number}{(i !== data.number2.length-1) && <>,&nbsp;</>}
-                            </a>)}
+                            {data.number2.map((number, i) => (
+                              <a
+                                href={data.href2[i]}
+                                className="mb-3 text-secondary"
+                                target="_blank"
+                                rel="noreferrer noopener"
+                              >
+                                {number}
+                                {i !== data.number2.length - 1 && <>,&nbsp;</>}
+                              </a>
+                            ))}
                             <p
                               className="mb-4 mt-1 small text-secondary pr-5"
                               dangerouslySetInnerHTML={{ __html: data.text }}
