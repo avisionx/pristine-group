@@ -12,7 +12,7 @@ const Contact = ({ isSmall }) => {
     contact: "",
   });
 
-  const [isSent, setIsSent] = useState('');
+  const [isSent, setIsSent] = useState("");
   const [isVerified, setIsVerified] = useState(null);
   const [isError, setIsError] = useState(false);
 
@@ -42,7 +42,7 @@ const Contact = ({ isSmall }) => {
   };
 
   const handleChange = (event) => {
-    setIsSent('');
+    setIsSent("");
 
     const target = event.target;
     const value = target.value;
@@ -57,14 +57,19 @@ const Contact = ({ isSmall }) => {
     {
       icon: mdiMapMarker,
       title: "Pristine Group",
-      text: "303, Ashok Bhawan - 93, Nehru Place, <br/> New Delhi - 110019",
+      text: "Flat No - 303, Ashok Bhawan - 93, Nehru Place, <br />New Delhi - 110019",
       href: "https://goo.gl/maps/dVosGt7vb6haAF518",
     },
     {
+      isPhone: true,
       icon: mdiPhone,
-      title: "+91-7701919922",
-      text: "Mon to Fri - 11AM to 5PM",
+      title: "Contact No.",
+      number: "+91 - 7701919922",
       href: "tel:+917701919922",
+      title2: "Tele Fax",
+      number2: ["+91 - 11-26431151", "+91 - 11-26431148"],
+      href2: ["tel:+911126431151", "tel:+911126431148"],
+      text: "Mon to Fri - 11AM to 5PM",
     },
     {
       icon: mdiEmail,
@@ -241,18 +246,52 @@ const Contact = ({ isSmall }) => {
                         <Icon path={data.icon} color="#049cf4" size={1} />
                       </span>
                       <div className="media-body ml-2">
-                        <a
-                          href={data.href}
-                          className="mb-0 h5 text-primary font-weight-light"
-                          target="_blank"
-                          rel="noreferrer noopener"
-                        >
-                          {data.title}
-                        </a>
-                        <p
-                          className="mb-4 text-secondary pr-5"
-                          dangerouslySetInnerHTML={{ __html: data.text }}
-                        ></p>
+                        {!data.isPhone && (
+                          <>
+                            <a
+                              href={data.href}
+                              className="mb-0 h5 text-primary font-weight-light"
+                              target="_blank"
+                              rel="noreferrer noopener"
+                            >
+                              {data.title}
+                            </a>
+                            <p
+                              className="mb-4 text-secondary pr-5"
+                              dangerouslySetInnerHTML={{ __html: data.text }}
+                            ></p>
+                          </>
+                        )}
+                        {data.isPhone && (
+                          <>
+                            <p className="mb-0 h5 text-primary font-weight-light">
+                              {data.title}
+                            </p>
+                            <a
+                              href={data.href}
+                              className="mb-3 text-secondary"
+                              target="_blank"
+                              rel="noreferrer noopener"
+                            >
+                              {data.number}
+                            </a>
+                            <p className="mb-0 mt-2 h5 text-primary font-weight-light">
+                              {data.title2}
+                            </p>
+                            {data.number2.map((number, i) => <a
+                              href={data.href2[i]}
+                              className="mb-3 text-secondary"
+                              target="_blank"
+                              rel="noreferrer noopener"
+                            >
+                              {number}{(i !== data.number2.length-1) && <>,&nbsp;</>}
+                            </a>)}
+                            <p
+                              className="mb-4 mt-1 small text-secondary pr-5"
+                              dangerouslySetInnerHTML={{ __html: data.text }}
+                            ></p>
+                          </>
+                        )}
                       </div>
                     </div>
                   );

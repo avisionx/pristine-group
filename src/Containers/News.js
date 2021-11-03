@@ -1,12 +1,18 @@
 import React, { useEffect, useState } from "react";
-import { Badge, Card, CardBody, CardImg, CardSubtitle, CardText, CardTitle } from "reactstrap";
+import {
+  Badge,
+  Card,
+  CardBody,
+  CardImg,
+  CardSubtitle,
+  CardText,
+  CardTitle,
+} from "reactstrap";
 import { H2 } from "./Home";
 import LinkArrow from "../img/link-arrow.svg";
 
 const News = ({ isSmall }) => {
-
   const [newsData, setNewsData] = useState([]);
-
 
   useEffect(() => {
     fetch(
@@ -22,8 +28,8 @@ const News = ({ isSmall }) => {
     <>
       <div className="container-fluid my-5">
         <H2 className="text-gradient text-center d-block d-lg-none text-lg-right text-uppercase font-weight-bold">
-        <span>Top News</span>
-          <div >
+          <span>Top News</span>
+          <div>
             <hr
               style={{
                 margin: "0",
@@ -52,16 +58,20 @@ const News = ({ isSmall }) => {
                 right: "3rem",
                 top: "-6rem",
                 transformOrigin: "bottom right",
-                opacity: 0.8
+                opacity: 0.8,
               }}
             >
-              Latest News
+              Real Estate News
             </h5>
           </div>
           <div className="order-3 order-lg-2 col-sm-12 col-lg-9">
-            <div className="row mt-5 mt-lg-0" style={{minHeight: "60vh"}}>
-              {newsData.length <= 0 && <div className="mt-5 pt-5 text-center w-100">Fetching Latest News...</div>}
-          {newsData.map((data) => (
+            <div className="row mt-5 mt-lg-0" style={{ minHeight: "60vh" }}>
+              {newsData.length <= 0 && (
+                <div className="mt-5 pt-5 text-center w-100">
+                  Fetching Latest News...
+                </div>
+              )}
+              {newsData.map((data) => (
                 <div
                   className="col-12 col-lg-4 mb-4 mb-lg-5 text-no-decor"
                   key={data.title}
@@ -104,7 +114,7 @@ const News = ({ isSmall }) => {
                   </Card>
                 </div>
               ))}
-              </div>
+            </div>
           </div>
         </div>
       </div>

@@ -8,7 +8,7 @@ const Residential = ({ isSmall }) => {
     <>
       <div className="container-fluid my-5">
         <H2 className="text-gradient text-center d-block d-lg-none text-lg-right text-uppercase font-weight-bold">
-          <span style={{fontSize: '3rem'}}>Residential</span>
+          <span style={{ fontSize: "3rem" }}>Residential</span>
           <div>
             <hr
               style={{
@@ -63,18 +63,40 @@ const Residential = ({ isSmall }) => {
               Chirag Enclave, Kalkaji, Malviya Nagar and Chattarpur to name a
               few.
             </p>
+
+            <p className="text-dark">
+              Luxury Farmhouses, a market which the company has pioneered and is
+              considered a market-mover in since its inception, is an extension
+              to its residential portfolio, more about which can be read{" "}
+              <Link to="/projects/luxury_farmhouses">here</Link>.
+            </p>
+            <h4 className="text-dark text-left mb-3 mt-4 text-uppercase font-weight-bold">
+              <span>Affordable Housing</span>
+              <div>
+                <hr
+                  style={{
+                    margin: "0",
+                    width: "50%",
+                    float: "right",
+                    background: "#cc040c",
+                  }}
+                />
+                <hr
+                  style={{
+                    margin: "0",
+                    width: "50%",
+                    float: "right",
+                    background: "#049cf4",
+                  }}
+                />
+              </div>
+            </h4>
             <p className="text-dark">
               Post Covid-19 Pandemic, the group has further expanded its
               portfolio to include affordable flats and builder floors in
               Faridabad where it is already prominently established since
               generations, currently the company boasts a sizable inventory in
               this fast-moving segment.
-            </p>
-            <p className="text-dark">
-              Luxury Farmhouses, a market which the company has pioneered and is
-              considered a market-mover in since its inception, is an extension
-              to its residential portfolio, more about which can be read{" "}
-              <Link to="/projects/luxury_farmhouses">here</Link>.
             </p>
           </div>
           <div className="text-center mt-4 mt-lg-0  col-sm-12 col-lg-4">
@@ -103,32 +125,6 @@ const Residential = ({ isSmall }) => {
               <Slideshow
                 slideImages={[
                   {
-                    img: process.env.PUBLIC_URL + "/residential/gated/1.jpg",
-                    text: "",
-                  },{
-                    img: process.env.PUBLIC_URL + "/residential/gated/2.jpg",
-                    text: "",
-                  },{
-                    img: process.env.PUBLIC_URL + "/residential/gated/3.jpg",
-                    text: "",
-                  },{
-                    img: process.env.PUBLIC_URL + "/residential/gated/4.jpg",
-                    text: "",
-                  },{
-                    img: process.env.PUBLIC_URL + "/residential/gated/5.jpg",
-                    text: "",
-                  },{
-                    img: process.env.PUBLIC_URL + "/residential/gated/6.jpg",
-                    text: "",
-                  },
-                ]}
-                head="Gated Villa Complex"
-              />
-            </div>
-            <div className="mt-5">
-              <Slideshow
-                slideImages={[
-                  {
                     img: process.env.PUBLIC_URL + "/residential/1.png",
                     text: "Elevation",
                   },
@@ -142,6 +138,37 @@ const Residential = ({ isSmall }) => {
                   },
                 ]}
                 head="Affordable Housing Projects"
+              />
+            </div>
+            <div className="mt-5">
+              <Slideshow
+                slideImages={[
+                  {
+                    img: process.env.PUBLIC_URL + "/residential/gated/1.jpg",
+                    text: "",
+                  },
+                  {
+                    img: process.env.PUBLIC_URL + "/residential/gated/2.jpg",
+                    text: "",
+                  },
+                  {
+                    img: process.env.PUBLIC_URL + "/residential/gated/3.jpg",
+                    text: "",
+                  },
+                  {
+                    img: process.env.PUBLIC_URL + "/residential/gated/4.jpg",
+                    text: "",
+                  },
+                  {
+                    img: process.env.PUBLIC_URL + "/residential/gated/5.jpg",
+                    text: "",
+                  },
+                  {
+                    img: process.env.PUBLIC_URL + "/residential/gated/6.jpg",
+                    text: "",
+                  },
+                ]}
+                head="Gated Villa Complex"
               />
             </div>
           </div>

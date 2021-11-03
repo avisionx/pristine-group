@@ -22,26 +22,31 @@ const Footer = ({ isSmall }) => {
         }}
       ></div>
       <Container fluid className="small bg-dark">
-        <Row className="text-light pt-0 pt-lg-5 d-flex justify-content-center">
+        <Row className="text-light pt-0 pt-lg-5 pb-4 d-flex justify-content-center">
           <Col sm="12" lg="3">
             <Link to="/" className="py-3" replace>
               <div className="row no-gutter d-flex align-items-center">
-                <Col xs="5" >
+                <Col xs="5">
                   <img width="100%" src={logo} alt="" className="img-fluid" />
                 </Col>
                 <Col xs="3" className="border-light border-left ">
-                  <img width={isSmall ? "100%" : "80%"} className="border border-light" src={logo_old} alt="" />
+                  <img
+                    width={isSmall ? "100%" : "80%"}
+                    className="border border-light"
+                    src={logo_old}
+                    alt=""
+                  />
                 </Col>
               </div>
             </Link>
             <p
-              className="mb-0 mt-2 h3 text-uppercase font-weight-light widen text-light"
+              className="mb-0 mt-2 text-uppercase font-weight-light widen text-light h5"
               style={{ fontFamily: "'Nunito', sans-serif" }}
             >
               Redefining Real Estate
             </p>
             {!isSmall && (
-              <p className="mt-5 mb-4">
+              <p className="mt-5 pt-4 mb-0">
                 © Gupta’s Pristine Group {new Date().getFullYear()}. All rights
                 reserved. Developed by{" "}
                 <a
@@ -89,8 +94,8 @@ const Footer = ({ isSmall }) => {
                     href="https://goo.gl/maps/dVosGt7vb6haAF518"
                     className=" text-light"
                   >
-                    303, Ashok Bhawan - 93, Nehru Place, <br /> New Delhi -
-                    110019
+                    Flat No - 303, Ashok Bhawan - 93, Nehru Place, <br />
+                    New Delhi - 110019
                   </a>
                 </Col>
               </Row>
@@ -99,8 +104,17 @@ const Footer = ({ isSmall }) => {
                   <Icon path={mdiPhoneOutline} size={1} />{" "}
                 </Col>
                 <Col className="pl-0">
+                  <p className="mb-0 text-light">Contact</p>
                   <a href="tel:+917701919922" className=" text-light">
-                    +91-7701919922
+                    +91 - 7701919922
+                  </a>
+                  <p className="mb-0 mt-1 text-light">Tele Fax</p>
+                  <a href="tel:+911126431151" className=" text-light">
+                    +91 - 11-26431151
+                  </a>
+                  ,&nbsp;
+                  <a href="tel:+911126431148" className=" text-light">
+                    +91 - 11-26431148
                   </a>
                   <br />
                   <span className="text-white" style={{ opacity: "0.7" }}>

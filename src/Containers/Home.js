@@ -159,7 +159,7 @@ const Home = ({ isSmall }) => {
                 process.env.PUBLIC_URL +
                 `/cover${isSmall ? "" : ""}/${i + 1}.jpg`
               }
-              style={isSmall ? {height: "100vh", objectFit: 'cover' } : {}}
+              style={isSmall ? { height: "100vh", objectFit: "cover" } : {}}
               key={i}
               alt=""
             />
@@ -515,13 +515,13 @@ const Home = ({ isSmall }) => {
                     </Link>
                     <figure className="mb-0">
                       <img
-                        src={
-                          process.env.PUBLIC_URL +
-                          `/projects/${i + 1}.jpg`
-                        }
+                        src={process.env.PUBLIC_URL + `/projects/${i + 1}.jpg`}
                         className="img-fluid"
                         width="100%"
-                        style={{maxHeight: "400px", objectFit: i+1 === 5 ? 'cover' : 'fill' }}
+                        style={{
+                          maxHeight: "400px",
+                          objectFit: i + 1 === 5 ? "cover" : "fill",
+                        }}
                         alt=""
                       />
                     </figure>
@@ -567,6 +567,7 @@ const Home = ({ isSmall }) => {
               LAST UPDATED {newsDate}HRS AGO
             </p>
             <H2 className="text-dark text-center text-lg-right text-uppercase font-weight-bold">
+              <span className="d-none d-lg-inline-block">Real Estate </span>{" "}
               News
               <div>
                 <hr
