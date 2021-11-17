@@ -27,8 +27,8 @@ const News = ({ isSmall }) => {
   return (
     <>
       <div className="container-fluid my-5">
-        <H2 className="text-gradient text-center d-block d-lg-none text-lg-right text-uppercase font-weight-bold">
-          <span>Top News</span>
+        <H2 className="text-gradient text-center d-block d-lg-none text-lg-right text-uppercase font-weight-bold" style={{fontSize: '3rem'}}>
+          <span>Real Estate News</span>
           <div>
             <hr
               style={{
