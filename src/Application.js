@@ -4,6 +4,7 @@ import { Router as DefaultRouter, Switch, Route } from "react-router-dom";
 import Home from "./Containers/Home";
 import News from "./Containers/News";
 import Contact from "./Containers/Contact";
+import Error404 from "./Containers/Error404";
 import Careers from "./Containers/Careers";
 import About from "./Containers/About";
 import NavBar from "./Components/NavBar";
@@ -91,6 +92,10 @@ const Application = () => {
           exact
           path="/contact"
           render={(props) => <Contact {...props} isSmall={isSmall} />}
+        />
+        <Route
+          path="/"
+          render={(props) => <Error404 {...props} isSmall={isSmall} />}
         />
       </Switch>
       <Footer isSmall={isSmall} />

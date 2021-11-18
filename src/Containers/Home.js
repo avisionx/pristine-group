@@ -663,7 +663,7 @@ const YearText = styled.h1`
   }
 `;
 
-const YearsOf = styled.div`
+export const YearsOf = styled.div`
   font-size: 5rem;
   text-align: center;
   margin-top: -5rem;
@@ -681,7 +681,7 @@ export const H2 = styled.div`
   }
 `;
 
-const Exp = styled.div`
+export const Exp = styled.div`
   font-size: 6rem;
   text-align: center;
   margin-top: -2rem;
