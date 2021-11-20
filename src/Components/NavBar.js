@@ -19,6 +19,7 @@ import { projectData } from "../Containers/Home";
 const NavBar = ({ isSmall }) => {
   const [collapsed, setCollapsed] = useState(true);
   const [isHome, setIsHome] = useState(false);
+  const [isOpen, setOpen] = useState(false);
   const toggleNavbar = () => setCollapsed(!collapsed);
   const [scrollPosition, setScrollPosition] = useState(window.pageYOffset > 10);
 
@@ -39,7 +40,11 @@ const NavBar = ({ isSmall }) => {
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: "smooth" });
     setIsHome(window.location.pathname === "/");
-  }, [location]);
+    if (isSmall) {
+      setOpen(false);
+      setCollapsed(true);
+    }
+  }, [location, isSmall]);
 
   const navLinks = () => (
     <>
@@ -174,7 +179,10 @@ const NavBar = ({ isSmall }) => {
                   className="img-fluid"
                 />
               </Col>
-              <Col size="auto" className="d-none d-md-block border-light border-left ">
+              <Col
+                size="auto"
+                className="d-none d-md-block border-light border-left "
+              >
                 <img
                   width="60px"
                   className="border border-light"
@@ -198,6 +206,8 @@ const NavBar = ({ isSmall }) => {
               </Nav>
             )}
             <Hamburger
+              toggled={isOpen}
+              toggle={setOpen}
               size={32}
               direction="left"
               distance="lg"

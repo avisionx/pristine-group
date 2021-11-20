@@ -17,7 +17,6 @@ const Careers = ({ isSmall }) => {
   const [isSent, setIsSent] = useState("");
   const [isVerified, setIsVerified] = useState(null);
   const [isError, setIsError] = useState(false);
-
   const submitMessage = (event) => {
     event.preventDefault();
     if (isVerified) {
@@ -28,7 +27,7 @@ const Careers = ({ isSmall }) => {
       let current_employer = state.current_employer;
       let linkedin = state.linkedin;
       let resume = state.resume;
-      var formUrl = `https://docs.google.com/forms/d/e/1FAIpQLSfmPXlIWXNV8FAQPnE_9l825r07xk2C8gxr4gaUjK9FKr8Ysg/viewform?usp=pp_url&entry.1832782791=${name}&entry.862181333=${email}&entry.662822698=${contact}&entry.429037016=${designation}&entry.1926150187=${current_employer}&entry.533786538=${linkedin}.com&entry.2069208664=${resume}`;
+      var formUrl = `https://docs.google.com/forms/d/e/1FAIpQLSfmPXlIWXNV8FAQPnE_9l825r07xk2C8gxr4gaUjK9FKr8Ysg/formResponse?usp=pp_url&entry.1832782791=${name}&entry.862181333=${email}&entry.662822698=${contact}&entry.429037016=${designation}&entry.1926150187=${current_employer}&entry.533786538=${linkedin}&entry.2069208664=${resume}`;
       var xmlHttp = new XMLHttpRequest();
       xmlHttp.open("GET", formUrl);
       xmlHttp.send(null);

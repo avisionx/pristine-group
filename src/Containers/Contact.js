@@ -23,7 +23,7 @@ const Contact = ({ isSmall }) => {
       let email = state.email;
       let message = state.message;
       let contact = state.contact;
-      var formUrl = `https://docs.google.com/forms/d/e/1FAIpQLSclvNomLE2jNLcCUj_A4daUDhrPws8U6kR9RENJoHRS_OZtMg/viewform?usp=pp_url&entry.1832782791=${name}&entry.862181333=${email}&entry.662822698=${contact}&entry.429037016=${message}`;
+      var formUrl = `https://docs.google.com/forms/d/e/1FAIpQLSclvNomLE2jNLcCUj_A4daUDhrPws8U6kR9RENJoHRS_OZtMg/formResponse?usp=pp_url&entry.1832782791=${name}&entry.862181333=${email}&entry.662822698=${contact}&entry.429037016=${message}`;
       var xmlHttp = new XMLHttpRequest();
       xmlHttp.open("GET", formUrl);
       xmlHttp.send(null);

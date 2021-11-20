@@ -10,9 +10,12 @@ import {
 } from "reactstrap";
 import { H2 } from "./Home";
 import LinkArrow from "../img/link-arrow.svg";
+import Icon from "@mdi/react";
+import { mdiClockTimeThreeOutline } from "@mdi/js";
 
 const News = ({ isSmall }) => {
   const [newsData, setNewsData] = useState([]);
+  const [newsDate, setNewsDate] = useState(0);
 
   useEffect(() => {
     fetch(
@@ -21,13 +24,29 @@ const News = ({ isSmall }) => {
       .then((response) => response.json())
       .then((data) => {
         setNewsData(data.news);
+        const date = data.updated_at.date;
+        const time = data.updated_at.time;
+        const newsDate = new Date(
+          date.Y,
+          parseInt(date.m) - 1,
+          date.d,
+          parseInt(time.H) + 5,
+          parseInt(time.M) + 30
+        );
+        const curDate = new Date();
+        setNewsDate(
+          Math.abs(Math.ceil(((newsDate - curDate) % 86400000) / 3600000))
+        );
       });
   }, []);
 
   return (
     <>
       <div className="container-fluid my-5">
-        <H2 className="text-gradient text-center d-block d-lg-none text-lg-right text-uppercase font-weight-bold" style={{fontSize: '3rem'}}>
+        <H2
+          className="text-gradient text-center d-block d-lg-none text-lg-right text-uppercase font-weight-bold"
+          style={{ fontSize: "3rem" }}
+        >
           <span>Real Estate News</span>
           <div>
             <hr
@@ -66,6 +85,23 @@ const News = ({ isSmall }) => {
           </div>
           <div className="order-3 order-lg-2 col-sm-12 col-lg-9">
             <div className="row mt-5 mt-lg-0" style={{ minHeight: "60vh" }}>
+              <div className="col-12 mb-3">
+                <p
+                  style={{
+                    bottom: isSmall ? "-3.2rem" : "-1rem",
+                    left: isSmall ? "2rem" : "1rem",
+                    marginRight: "-7rem",
+                  }}
+                  className="minimal-text text-gradient"
+                >
+                  <Icon
+                    path={mdiClockTimeThreeOutline}
+                    size={1}
+                    color="#049cf4"
+                  />{" "}
+                  LAST UPDATED {newsDate}HRS AGO
+                </p>
+              </div>
               {newsData.length <= 0 && (
                 <div className="mt-5 pt-5 text-center w-100">
                   Fetching Latest News...
