@@ -58,7 +58,7 @@ const Contact = ({ isSmall }) => {
       icon: mdiMapMarker,
       title: "Pristine Group",
       subtitle: "Corporate Office",
-      text: "Flat No - 303, Ashok Bhawan - 93, Nehru Place, <br />New Delhi - 110019",
+      text: "303, Ashok Bhawan - 93, Nehru Place, <br />New Delhi - 110019",
       href: "https://goo.gl/maps/dVosGt7vb6haAF518",
     },
     {

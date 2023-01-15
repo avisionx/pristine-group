@@ -94,7 +94,7 @@ const Footer = ({ isSmall }) => {
                     href="https://goo.gl/maps/dVosGt7vb6haAF518"
                     className=" text-light"
                   >
-                    Flat No - 303, Ashok Bhawan - 93, Nehru Place, <br />
+                    303, Ashok Bhawan - 93, Nehru Place, <br />
                     New Delhi - 110019
                   </a>
                 </Col>
