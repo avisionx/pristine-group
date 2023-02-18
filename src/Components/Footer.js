@@ -105,10 +105,6 @@ const Footer = ({ isSmall }) => {
                 </Col>
                 <Col className="pl-0">
                   <p className="mb-0 text-light">Contact</p>
-                  <a href="tel:+917701919922" className=" text-light">
-                    +91 - 7701919922
-                  </a>
-                  <p className="mb-0 mt-1 text-light">Tele Fax</p>
                   <a href="tel:+911126431151" className=" text-light">
                     +91 - 11-26431151
                   </a>

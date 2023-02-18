@@ -65,9 +65,6 @@ const Contact = ({ isSmall }) => {
       isPhone: true,
       icon: mdiPhone,
       title: "Contact No.",
-      number: "+91 - 7701919922",
-      href: "tel:+917701919922",
-      title2: "Tele Fax",
       number2: ["+91 - 11-26431151", "+91 - 11-26431148"],
       href2: ["tel:+911126431151", "tel:+911126431148"],
       text: "Mon to Fri - 11AM to 5PM",
@@ -229,9 +226,8 @@ const Contact = ({ isSmall }) => {
                         <div className="bg-white px-5 text-dark py-2">Send</div>
                       </button>
                       <div
-                        className={`mb-0 ml-auto d-flex align-items-center small border-0 py-0 text-uppercase alert ${
-                          isError ? "alert-danger" : "alert-success"
-                        } hidden ${isSent ? "" : "hide"}`}
+                        className={`mb-0 ml-auto d-flex align-items-center small border-0 py-0 text-uppercase alert ${isError ? "alert-danger" : "alert-success"
+                          } hidden ${isSent ? "" : "hide"}`}
                       >
                         {isSent}
                       </div>
@@ -271,19 +267,20 @@ const Contact = ({ isSmall }) => {
                             <p className="mb-0 h5 text-primary font-weight-light">
                               {data.title}
                             </p>
-                            <a
+                            {data.number && <a
                               href={data.href}
                               className="mb-3 text-secondary"
                               target="_blank"
                               rel="noreferrer noopener"
                             >
                               {data.number}
-                            </a>
-                            <p className="mb-0 mt-2 h5 text-primary font-weight-light">
+                            </a>}
+                            {data.title2 && <p className="mb-0 mt-2 h5 text-primary font-weight-light">
                               {data.title2}
-                            </p>
+                            </p>}
                             {data.number2.map((number, i) => (
                               <a
+                                key={i}
                                 href={data.href2[i]}
                                 className="mb-3 text-secondary"
                                 target="_blank"
