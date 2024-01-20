@@ -92,7 +92,7 @@ const Residential = ({ isSmall }) => {
               </div>
             </h4>
             <p className="text-dark">
-              Post Covid-19 Pandemic, the group has further expanded its
+              Post the Covid-19 Pandemic, the group has further expanded its
               portfolio to include affordable flats and builder floors in
               Faridabad where it is already prominently established since
               generations, currently the company boasts a sizable inventory in
